@@ -1,0 +1,206 @@
+/* Some basic styling for the single page */
+* {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: rgb(65, 29, 104);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+h1 {
+    font-weight: lighter;
+    margin-top: 0;
+}
+
+.vstack,
+.hstack {
+    display: flex;
+}
+
+.vstack {
+    flex-direction: column;
+}
+
+.hstack {
+    flex-direction: row;
+}
+
+.center {
+    justify-content: center;
+    align-items: center;
+}
+
+.tsw-brand {
+    max-width: 50%;
+    max-height: 10rem;
+}
+
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1;
+    width: 20rem;
+    max-width: 20%;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    margin: 0.5rem;
+    border: 0.1rem solid gray;
+}
+
+.loading-container.dark {
+    background-color: black;
+}
+
+.loading-container.light {
+    background-color: white;
+}
+
+.loading-demo {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.loading-container-name {
+    font-size: 0.75rem;
+    box-sizing: border-box;
+    padding: 0.5rem;
+    border-top: 0.1rem solid gray;
+    width: 100%;
+    text-align: center;
+}
+
+.dark .loading-container-name {
+    color: white;
+}
+
+.light .loading-container-name {
+    color: black;
+}
+
+/* ! This is where we get started with styling the loaders */
+
+/* * Rotate wheel */
+
+@keyframes rotate-wheel {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.rainbow-wheel {
+    width: 2rem;
+    height: 2rem;
+    background-image: conic-gradient(red, orange, yellow, rgb(1, 214, 1), rgb(92, 92, 254), red);
+    border-radius: 100%;
+    animation-name: rotate-wheel;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rainbow-wheel .rainbow-wheel-inner {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 100%;
+    padding: 0.2rem;
+    box-sizing: border-box;
+}
+
+.dark .rainbow-wheel .rainbow-wheel-inner {
+    background-color: black;
+}
+
+.light .rainbow-wheel .rainbow-wheel-inner {
+    background-color: white;
+}
+
+/* * Fading dots */
+
+@keyframes fade-dot {
+    from {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.fading-dots {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.fading-dots .dot {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation-name: fade-dot;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+.dark .fading-dots .dot {
+    background-color: white;
+}
+
+.light .fading-dots .dot {
+    background-color: black;
+}
+
+.fading-dots .dot .dot-inner {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 100%;
+}
+
+.dark .fading-dots .dot .dot-inner {
+    background: black;
+}
+
+.light .fading-dots .dot .dot-inner {
+    background: white;
+}
+
+.fading-dots .dot:nth-child(0) {
+    animation-delay: 0.5s;
+}
+
+.fading-dots .dot:nth-child(1) {
+    animation-delay: 1s;
+}
+
+.fading-dots .dot:nth-child(2) {
+    animation-delay: 1.5s;
+}
+
+.fading-dots .dot:nth-child(3) {
+    animation-delay: 2s;
+}
+
+.fading-dots .dot:nth-child(4) {
+    animation-delay: 2.5s;
+}
